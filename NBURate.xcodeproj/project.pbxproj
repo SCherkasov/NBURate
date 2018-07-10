@@ -13,7 +13,7 @@
 		8ABDCFCE20F3D6BD0001FB2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ABDCFCC20F3D6BD0001FB2F /* LaunchScreen.storyboard */; };
 		8ABDCFE220F3F1110001FB2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABDCFE120F3F1110001FB2F /* ViewController.swift */; };
 		8ABDCFE420F3F1EE0001FB2F /* RateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABDCFE320F3F1EE0001FB2F /* RateTableViewCell.swift */; };
-		8ABDCFE620F534A50001FB2F /* ModelRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABDCFE520F534A50001FB2F /* ModelRate.swift */; };
+		8ABDCFE620F534A50001FB2F /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABDCFE520F534A50001FB2F /* Rate.swift */; };
 		A13116AB840D5593899CCDA9 /* Pods_NBURate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA083818C38F584E53BEE1E0 /* Pods_NBURate.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		8ABDCFCF20F3D6BD0001FB2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ABDCFE120F3F1110001FB2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8ABDCFE320F3F1EE0001FB2F /* RateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateTableViewCell.swift; sourceTree = "<group>"; };
-		8ABDCFE520F534A50001FB2F /* ModelRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRate.swift; sourceTree = "<group>"; };
+		8ABDCFE520F534A50001FB2F /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		8FD72AF1C412F8FAC4567221 /* Pods-NBURate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBURate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBURate/Pods-NBURate.debug.xcconfig"; sourceTree = "<group>"; };
 		AA083818C38F584E53BEE1E0 /* Pods_NBURate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBURate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0FF03D2F42554EC728086A0 /* Pods-NBURate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBURate.release.xcconfig"; path = "Pods/Target Support Files/Pods-NBURate/Pods-NBURate.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 				8ABDCFC320F3D6BB0001FB2F /* AppDelegate.swift */,
 				8ABDCFC720F3D6BB0001FB2F /* Main.storyboard */,
 				8ABDCFE120F3F1110001FB2F /* ViewController.swift */,
-				8ABDCFE520F534A50001FB2F /* ModelRate.swift */,
+				8ABDCFE520F534A50001FB2F /* Rate.swift */,
 				8ABDCFE320F3F1EE0001FB2F /* RateTableViewCell.swift */,
 				8ABDCFCA20F3D6BD0001FB2F /* Assets.xcassets */,
 				8ABDCFCC20F3D6BD0001FB2F /* LaunchScreen.storyboard */,
@@ -228,7 +228,7 @@
 				8ABDCFE220F3F1110001FB2F /* ViewController.swift in Sources */,
 				8ABDCFC420F3D6BB0001FB2F /* AppDelegate.swift in Sources */,
 				8ABDCFE420F3F1EE0001FB2F /* RateTableViewCell.swift in Sources */,
-				8ABDCFE620F534A50001FB2F /* ModelRate.swift in Sources */,
+				8ABDCFE620F534A50001FB2F /* Rate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

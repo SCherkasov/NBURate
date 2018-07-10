@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct ModelRate {
-    var nameRate: String
+struct Rate {
+    
+    var name: String
+    
+    var value: Float
+    
 }

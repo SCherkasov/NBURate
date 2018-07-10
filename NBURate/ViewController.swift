@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     let url = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json"
     
-    var rateArray: [ModelRate] = []
+    var rates: [Rate] = []
     
     let tableCell = RateTableViewCell()
     
@@ -34,17 +34,17 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let txt = json[]
-                txt["txt"].array?.forEach({ (text) in
-                    let text = ModelRate(nameRate: text["txt"].stringValue)
-                    self.rateArray.append(text)
-                })
+                self.rates = json.arrayValue.map {
+                    Rate(
+                        name: $0["txt"].stringValue,
+                        value: $0["rate"].floatValue
+                    )
+                }
+                
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
-            
         }
     }
     
@@ -57,13 +57,13 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rateArray.count
+        return self.rates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RateTableViewCell
      
-        cell.rateLabel.text = rateArray[indexPath.row].nameRate
+        cell.rateLabel.text = self.rates[indexPath.row].name
         
         return cell
     }
