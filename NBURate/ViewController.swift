@@ -33,12 +33,15 @@ class ViewController: UIViewController {
         request(url, method: .get).responseJSON { response in
             switch response.result {
             case .success(let value):
-                let json = JSON(value)
-                self.rates = json.arrayValue.map {
-                    Rate(
-                        name: $0["txt"].stringValue,
-                        value: $0["rate"].floatValue
+                let jsonRates = JSON(value)
+                
+                for jsonRate in jsonRates.arrayValue {
+                    let rate = Rate(
+                        name: jsonRate["txt"].stringValue,
+                        value: jsonRate["value"].floatValue
                     )
+                    
+                    self.rates.append(rate)
                 }
                 
                 self.tableView.reloadData()
