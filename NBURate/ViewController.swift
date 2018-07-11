@@ -27,6 +27,19 @@ class ViewController: UIViewController {
         getRateData()
     }
     
+    func controlsRefresh() {
+        self.tableView.reloadData()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        
+        self.currentDateLabel.text = self.rates
+            .sorted { (rate1, rate2) in
+                (formatter.date(from: rate1.date) ?? Date.init())
+                    > (formatter.date(from: rate2.date) ?? Date())
+            }.first?.date
+    }
+    
     //MARK: - Networking
     
     func getRateData() {
@@ -38,15 +51,19 @@ class ViewController: UIViewController {
                 for jsonRate in jsonRates.arrayValue {
                     let rate = Rate(
                         name: jsonRate["txt"].stringValue,
-                        value: jsonRate["value"].floatValue
+                        value: jsonRate["rate"].floatValue,
+                        date: jsonRate["exchangedate"].stringValue
                     )
                     
                     self.rates.append(rate)
                 }
                 
-                self.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+            
+            DispatchQueue.main.async {
+                self.controlsRefresh()
             }
         }
     }
@@ -54,7 +71,6 @@ class ViewController: UIViewController {
     @IBAction func refreshButton(_ sender: UIButton) {
         self.tableView.reloadData()
     }
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -65,8 +81,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RateTableViewCell
+        
+        let rate = self.rates[indexPath.row]
      
-        cell.rateLabel.text = self.rates[indexPath.row].name
+        cell.nameLabel.text = rate.name
+        cell.rateLabel.text = "\(rate.value)"
         
         return cell
     }

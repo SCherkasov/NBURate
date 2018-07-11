@@ -14,4 +14,6 @@ struct Rate {
     
     var value: Float
     
+    var date: String
+    
 }

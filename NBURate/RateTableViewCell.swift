@@ -11,6 +11,8 @@ import UIKit
 class RateTableViewCell: UITableViewCell {
 
 
+    @IBOutlet var nameLabel: UILabel!
+    
     @IBOutlet var rateLabel: UILabel!
     
     var rate = ""
